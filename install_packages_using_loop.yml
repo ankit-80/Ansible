@@ -1,0 +1,14 @@
+#playbook to istall multiple packages in one task
+#using item
+---
+  - hosts: all
+    become: yes
+    tasks:
+      - name: install multiple packages
+        package:
+          name: "{{item}}"
+          state: latest
+          update_cache: yes #update_cache: yes is used to update the package cache before installing the specified package
+        loop:
+            - nginx
+            - tree

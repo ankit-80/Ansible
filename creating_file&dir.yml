@@ -1,0 +1,9 @@
+---
+  - hosts: batch-22
+    become: yes
+    tasks:
+      - name: crating file & directories on servers
+        file: path=/ak_data state=touch
+
+      - name: creating directory on servre
+        file: path=/root/ak_info state=directory

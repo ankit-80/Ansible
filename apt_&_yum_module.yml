@@ -1,0 +1,18 @@
+
+# this playbook for installing packges on differnt systems we get failed error
+
+---
+  - hosts: batch-22
+    become: yes
+    tasks:
+      - name: install packages on ununtu/debian systems
+        apt:
+            name: nginx
+            state: present
+        ignore_errors: true # This task will run even if the previous one fails
+
+
+      - name: install packages on RedHat/aws-linux systems
+        yum: name=nginx state=present
+        ignore_errors: true  # This task will run even if the previous one fails
+

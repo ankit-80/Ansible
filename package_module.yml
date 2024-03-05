@@ -1,0 +1,9 @@
+---
+  - hosts: batch-22
+    become: true
+    gather_facts: yes
+    tasks:
+      - name: Install Git on  all servers or os
+        package:
+           name: git
+           state: present
